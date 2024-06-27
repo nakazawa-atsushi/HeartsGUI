@@ -1,0 +1,9 @@
+.gitignore
+*.bak
+__pychache__/*
+build
+data
+dist
+obsolute
+devices.json
+
