@@ -21,7 +21,7 @@ DIR = ""
 DEVICE = ""
 
 # version
-VERSION = "Hearts GUI ver.0.1 (HCI Lab, Okayama Univ)"
+VERSION = "Hearts GUI ver.0.11 (HCI Lab, Okayama Univ)"
 
 # 状態をアップデートする関数(Thread)
 def eval_update_func(window):

@@ -13,8 +13,9 @@ class BLEHeartsEvaListener(threading.Thread):
         self.stop_thread = False
         self.sock = sock
         self.buffer = []
-        text = '{"evaluation":true, "reset":false,"mode":false,"senario":false,"senarionum":0,"forward":false,"backword":false,"requestEvaluationList":false,"requestEvaluation":"","requestExportConfig":false,"face":-1,"language":false,"languageIndexChange":false,"languageIndex":0,"beep":false,"level":-1,"levelChange":false,"changedLevel":0}'
+        text = '{"evaluation":false, "reset":false,"mode":false,"senario":false,"senarionum":0,"forward":false,"backword":false,"requestEvaluationList":false,"requestEvaluation":"","requestExportConfig":false,"face":-1,"language":false,"languageIndexChange":false,"languageIndex":0,"beep":false,"level":-1,"levelChange":false,"changedLevel":0}'
         self.json_default = json.loads(text)
+        self.evamode = False
 
     def stop(self):
         self.json_default['evaluation'] = 'false'
@@ -58,15 +59,17 @@ class BLEHeartsEvaListener(threading.Thread):
         
     def run(self):
         while(True):
+            # if self.evamode == False:
             # send message
-            self.json_default['evaluation'] = 'true'
+            # print("now send message")
+            self.json_default['evaluation'] = 'false'
             text = json.dumps(self.json_default)         
             length = len(text)
             len_bytes = length.to_bytes(4,'big')
             self.sock.send(len_bytes)
             self.sock.send(text)
+            # self.evamode = True
 
-            #print("now receiving")
             # receive message
             data = self.sock.recv(4)
             size = int.from_bytes(data, 'big')

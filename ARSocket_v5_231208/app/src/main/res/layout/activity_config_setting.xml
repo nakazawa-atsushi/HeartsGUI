@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ConfigSettingActivity">
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/image_button_bg"
+        android:contentDescription="@string/descBackButton"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ScrollView
+        android:id="@+id/scrollViewConfig"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/textUpload"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerEvaluations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textUpload"
+                app:layout_constraintTop_toBottomOf="@+id/textUpload" />
+
+            <Button
+                android:id="@+id/buttonUploadData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonUpload"
+                app:layout_constraintStart_toStartOf="@+id/textUpload"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerEvaluations" />
+
+            <Button
+                android:id="@+id/buttonLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonLogout"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerEvaluations"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerEvaluations" />
+
+            <TextView
+                android:id="@+id/textTitleImportExport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textImportExportTitle"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textUpload"
+                app:layout_constraintTop_toBottomOf="@+id/buttonUploadData" />
+
+            <Button
+                android:id="@+id/buttonImportSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:enabled="true"
+                android:text="@string/buttonImportSettings"
+                app:layout_constraintStart_toStartOf="@+id/textUpload"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleImportExport" />
+
+            <Button
+                android:id="@+id/buttonExportSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:enabled="true"
+                android:text="@string/buttonExportSettings"
+                app:layout_constraintStart_toEndOf="@+id/buttonImportSettings"
+                app:layout_constraintTop_toTopOf="@+id/buttonImportSettings" />
+
+            <TextView
+                android:id="@+id/textTitleOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/textOtherSettingsTitle"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/buttonImportSettings"
+                app:layout_constraintTop_toBottomOf="@+id/buttonImportSettings" />
+
+            <TextView
+                android:id="@+id/textFace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/textFaceTitle"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/textTitleOthers"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleOthers" />
+
+            <Spinner
+                android:id="@+id/spinnerFaces"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="16dp"
+                android:entries="@array/faces"
+                android:minWidth="250dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textFace"
+                app:layout_constraintTop_toTopOf="@+id/textFace" />
+
+            <TextView
+                android:id="@+id/textLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textLanguageTitle"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/textFace"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerFaces" />
+
+            <Spinner
+                android:id="@+id/spinnerLanguages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/languages"
+                android:minWidth="250dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerFaces"
+                app:layout_constraintStart_toStartOf="@+id/spinnerFaces"
+                app:layout_constraintTop_toTopOf="@+id/textLanguage" />
+
+            <Button
+                android:id="@+id/buttonAddLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:enabled="true"
+                android:minWidth="120dp"
+                android:text="@string/buttonAddLanguage"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/spinnerLanguages"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerLanguages" />
+
+            <Button
+                android:id="@+id/buttonRemoveLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:enabled="true"
+                android:minWidth="120dp"
+                android:text="@string/buttonRemoveLanguage"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/buttonAddLanguage"
+                app:layout_constraintTop_toTopOf="@+id/buttonAddLanguage" />
+
+            <TextView
+                android:id="@+id/textBeep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textBeepTitle"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/textLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/buttonAddLanguage" />
+
+            <ToggleButton
+                android:id="@+id/buttonBeep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonBeep"
+                app:layout_constraintStart_toStartOf="@+id/buttonAddLanguage"
+                app:layout_constraintTop_toTopOf="@+id/textBeep" />
+
+            <TextView
+                android:id="@+id/textLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textLevelTitle"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/textBeep"
+                app:layout_constraintTop_toBottomOf="@+id/buttonBeep" />
+
+            <Spinner
+                android:id="@+id/spinnerLevels"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/levels"
+                android:minWidth="250dp"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="@+id/buttonBeep"
+                app:layout_constraintTop_toTopOf="@+id/textLevel" />
+
+            <TextView
+                android:id="@+id/textOpenAI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textOpenAIKeyTitle"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textLevel"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerLevels" />
+
+            <EditText
+                android:id="@+id/editTextOpenAIKey"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/textOpenAIKeyHint"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUpdateOpenAIKey"
+                app:layout_constraintStart_toStartOf="@+id/textOpenAI"
+                app:layout_constraintTop_toBottomOf="@+id/textOpenAI" />
+
+            <Button
+                android:id="@+id/buttonUpdateOpenAIKey"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:enabled="true"
+                android:minWidth="90dp"
+                android:text="@string/buttonUpdate"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editTextOpenAIKey" />
+
+            <TextView
+                android:id="@+id/textAzureRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/textAzureRegionTitle"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textOpenAI"
+                app:layout_constraintTop_toBottomOf="@+id/editTextOpenAIKey" />
+
+            <EditText
+                android:id="@+id/editTextAzureRegion"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/textAzureRegionHint"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="@+id/textAzureRegion"
+                app:layout_constraintTop_toBottomOf="@+id/textAzureRegion" />
+
+            <TextView
+                android:id="@+id/textAzureSubscriptionKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/textAzureSubscriptionKeyTitle"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/editTextAzureRegion"
+                app:layout_constraintTop_toTopOf="@+id/textAzureRegion" />
+
+            <EditText
+                android:id="@+id/editTextAzureSubscriptionKey"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/textAzureSubscriptionKeyHint"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUpdateAzureSettings"
+                app:layout_constraintStart_toStartOf="@+id/textAzureSubscriptionKey"
+                app:layout_constraintTop_toBottomOf="@+id/textAzureSubscriptionKey" />
+
+            <Button
+                android:id="@+id/buttonUpdateAzureSettings"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:enabled="true"
+                android:minWidth="90dp"
+                android:text="@string/buttonUpdate"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editTextAzureSubscriptionKey" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textDummy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="700dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

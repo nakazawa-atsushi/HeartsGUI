@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonConnect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/buttonConnect"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerBtDevices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinnerBtDevices"
+        app:layout_constraintTop_toTopOf="@+id/spinnerBtDevices" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:text="@string/buttonReset"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConnect" />
+
+    <Button
+        android:id="@+id/buttonEvaluation"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:text="@string/buttonEvaluation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReset" />
+
+    <ImageButton
+        android:id="@+id/buttonForward"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/buttonForward"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBackward"
+        app:layout_constraintStart_toEndOf="@+id/textCurrentState"
+        app:layout_constraintTop_toTopOf="@+id/buttonBackward"
+        app:srcCompat="@android:drawable/ic_media_next" />
+
+    <ImageButton
+        android:id="@+id/buttonBackward"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/buttonBackward"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonScenario4"
+        app:layout_constraintStart_toStartOf="@+id/textStateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textStateTitle"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <Button
+        android:id="@+id/buttonScenario1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonScenario1"
+        app:layout_constraintStart_toStartOf="@+id/spinnerModes"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerModes" />
+
+    <Button
+        android:id="@+id/buttonScenario2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonScenario2"
+        app:layout_constraintStart_toEndOf="@+id/buttonScenario1"
+        app:layout_constraintTop_toTopOf="@+id/buttonScenario1" />
+
+    <Button
+        android:id="@+id/buttonScenario3"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonScenario3"
+        app:layout_constraintStart_toStartOf="@+id/buttonScenario1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonScenario1" />
+
+    <Button
+        android:id="@+id/buttonScenario4"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonScenario4"
+        app:layout_constraintStart_toEndOf="@+id/buttonScenario3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonScenario2" />
+
+    <TextView
+        android:id="@+id/multiscore_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/multiscore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEvaluation" />
+
+    <TextView
+        android:id="@+id/eye_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/eyescore"
+        app:layout_constraintStart_toEndOf="@+id/multiscore_text"
+        app:layout_constraintTop_toTopOf="@+id/multiscore_text" />
+
+    <TextView
+        android:id="@+id/talk_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/talkscore"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/eye_text"
+        app:layout_constraintTop_toTopOf="@+id/multiscore_text" />
+
+    <TextView
+        android:id="@+id/distance_text"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/distance"
+        app:layout_constraintStart_toEndOf="@+id/talk_text"
+        app:layout_constraintTop_toTopOf="@+id/multiscore_text" />
+
+    <TextView
+        android:id="@+id/eyescore_textView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textSize="48sp"
+        app:layout_constraintStart_toEndOf="@+id/multiscore_text"
+        app:layout_constraintTop_toBottomOf="@+id/eye_text" />
+
+    <TextView
+        android:id="@+id/multiscore_textView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="@+id/multiscore_text"
+        app:layout_constraintTop_toBottomOf="@+id/multiscore_text" />
+
+    <TextView
+        android:id="@+id/talkscore_textView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textSize="48sp"
+        app:layout_constraintStart_toEndOf="@+id/eye_text"
+        app:layout_constraintTop_toBottomOf="@+id/talk_text" />
+
+    <TextView
+        android:id="@+id/distance_textView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:textSize="48sp"
+        app:layout_constraintStart_toEndOf="@+id/talk_text"
+        app:layout_constraintTop_toBottomOf="@+id/distance_text" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/spinner1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/spinner2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/spinner3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/thresholds"
+        app:layout_constraintStart_toEndOf="@+id/buttonReset"
+        app:layout_constraintTop_toBottomOf="@+id/textBeepThreshold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/multiscore_textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart_top"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1">
+
+            </com.github.mikephil.charting.charts.LineChart>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart_middle"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1">
+
+            </com.github.mikephil.charting.charts.LineChart>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Spinner
+        android:id="@+id/spinnerBtDevices"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:entries="@array/bluetoothDevices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_min="250dp" />
+
+    <TextView
+        android:id="@+id/textBeepThreshold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/threshold"
+        app:layout_constraintStart_toEndOf="@+id/buttonReset"
+        app:layout_constraintTop_toTopOf="@+id/buttonReset" />
+
+    <ImageButton
+        android:id="@+id/buttonConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/buttonConfig"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner5"
+        app:layout_constraintTop_toTopOf="@+id/textBeepThreshold"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
+
+    <TextView
+        android:id="@+id/textStateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/currentStateTitle"
+        app:layout_constraintStart_toEndOf="@+id/buttonScenario2"
+        app:layout_constraintTop_toTopOf="@+id/spinnerModes" />
+
+    <TextView
+        android:id="@+id/textCurrentState"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/textStateNone"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBackward"
+        app:layout_constraintStart_toEndOf="@+id/buttonBackward"
+        app:layout_constraintTop_toTopOf="@+id/buttonBackward" />
+
+    <Spinner
+        android:id="@+id/spinnerModes"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/evaluationModes"
+        app:layout_constraintStart_toEndOf="@+id/buttonEvaluation"
+        app:layout_constraintTop_toTopOf="@+id/buttonEvaluation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

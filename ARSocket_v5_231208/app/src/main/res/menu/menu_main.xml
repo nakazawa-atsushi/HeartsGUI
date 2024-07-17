@@ -1,0 +1,69 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="jp.ac.kyushuu.ait.myapplication.MainActivity">
+    <item
+        android:id="@+id/language_setting"
+        android:orderInCategory="100"
+        android:title="@string/buttonLanguage"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/menu_japanese"
+                android:orderInCategory="101"
+                android:title="@string/buttonJapanese" />
+            <item
+                android:id="@+id/menu_english"
+                android:orderInCategory="102"
+                android:title="@string/buttonEnglish" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/beep_setting"
+        android:orderInCategory="101"
+        android:title="@string/buttonBeep"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/menu_beepon"
+                android:orderInCategory="103"
+                android:title="@string/buttonBeepOn" />
+            <item
+                android:id="@+id/menu_beepoff"
+                android:orderInCategory="104"
+                android:title="@string/buttonBeepOff" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mode_setting"
+        android:orderInCategory="102"
+        android:title="@string/buttonMode"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_training"
+                android:orderInCategory="103"
+                android:title="@string/buttonTrainingMode" />
+            <item
+                android:id="@+id/menu_scenario"
+                android:orderInCategory="104"
+                android:title="@string/buttonScenarioMode" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/level_setting"
+        android:orderInCategory="102"
+        android:title="@string/buttonLevel" >
+        <menu >
+            <item
+                android:id="@+id/menu_easy"
+                android:title="@string/buttonEasy" />
+            <item
+                android:id="@+id/menu_medium"
+                android:title="@string/buttonMedium" />
+            <item
+                android:id="@+id/menu_hard"
+                android:title="@string/buttonHard" />
+        </menu>
+    </item>
+</menu>
