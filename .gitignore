@@ -1,9 +1,11 @@
 .gitignore
 *.bak
+__pychache__
 __pychache__/*
 build
 data
 dist
 obsolute
 devices.json
-
+ARSocket_v5_231208/*
+ARSocket_v5_231208

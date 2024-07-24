@@ -16,6 +16,8 @@ class BLEHeartsEvaListener(threading.Thread):
         text = '{"evaluation":false, "reset":false,"mode":false,"senario":false,"senarionum":0,"forward":false,"backword":false,"requestEvaluationList":false,"requestEvaluation":"","requestExportConfig":false,"face":-1,"language":false,"languageIndexChange":false,"languageIndex":0,"beep":false,"level":-1,"levelChange":false,"changedLevel":0}'
         self.json_default = json.loads(text)
         self.evamode = False
+        self.face  = -1
+        self.beep  = False
 
     def stop(self):
         self.json_default['evaluation'] = 'false'
@@ -63,6 +65,14 @@ class BLEHeartsEvaListener(threading.Thread):
             # send message
             # print("now send message")
             self.json_default['evaluation'] = 'false'
+
+            self.json_default['face'] = self.face
+            
+            if self.beep == True:
+                self.json_default['beep'] = 'true'
+            else:
+                self.json_default['beep'] = 'false'
+
             text = json.dumps(self.json_default)         
             length = len(text)
             len_bytes = length.to_bytes(4,'big')
@@ -176,11 +186,21 @@ class BLEHearts():
             return self.listener.buffer
         else:
             return False
-        
+
+    # 顔のIDを設定
+    def set_face(self, face):
+        if self.listener:
+            self.listener.face = face
+
+    # beep = True, False を設定
+    def set_beep(self, beep):
+        if self.listener:
+            self.listener.beep = beep
+
 def main():
     bleh = BLEHearts()
 
-    #亀川
+    #
     # device scan functions
     #
     bleh.load_devices()

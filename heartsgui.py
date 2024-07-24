@@ -21,7 +21,7 @@ DIR = ""
 DEVICE = ""
 
 # version
-VERSION = "Hearts GUI ver.0.11 (HCI Lab, Okayama Univ)"
+VERSION = "HEARTS GUI ver.0.12 / HCI Lab, OKAYAMA UNIV."
 
 # 状態をアップデートする関数(Thread)
 def eval_update_func(window):
@@ -141,11 +141,14 @@ def main():
             [sg.Text('0',key='mm_score',size=(10,1), font=("Calibri", 20),justification="right")],
             [sg.Text('0',key='dist_av_score',size=(10,1), font=("Calibri", 20),justification="right")]            
             ]
+    
+    face_text = ["デフォルト", "高齢(男)", "若年(男)", "若年(女)", "高齢(Real)"]
 
     layout = [
         [sg.Combo(devices,default_value=device_default,key='combo_device',readonly=True,size=(30,24)), 
          sg.Button('接続',key="CONNECT"), sg.Button('スキャン',key="SCAN")],
-        [sg.Button('評価開始',key='start_eval', disabled = True), sg.Button('評価停止', disabled = True,key='stop_eval')],
+        [sg.Button('評価開始',key='start_eval', disabled = True), sg.Button('評価停止', disabled = True,key='stop_eval'), 
+         sg.Text('フェイス'), sg.Combo(face_text,default_value="デフォルト",readonly=True,enable_events=True,key="FACE")], 
         [sg.HorizontalSeparator()],
         [sg.Text('セッション番号', font=("Calibri", 20)), sg.Text(f'{session}', key='session', font=("Calibri", 20),justification="right")],
         [sg.HorizontalSeparator()],          
@@ -163,11 +166,12 @@ def main():
 
     while True:
         event, values = window.read()
+        # print(event, values)
 
         if event is None:
             # kill the thread
             bleh.stop_evaluation()
-            print('exit')
+            # print('exit')
             break
 
         # 接続を処理する
@@ -265,6 +269,12 @@ def main():
         if event[0] == 'STATUSMESSAGE':
             window['statusbar'].update(event[1])
             window.refresh()
+
+        # 顔を変更する
+        if event == 'FACE':
+            face_id = face_text.index(window['FACE'].get())
+            bleh.set_face(face_id)
+            print(face_id)
 
         if event[0] == 'EVAL_UPDATE':
             window['duration'].update(value = f"{event[1]} 秒")
