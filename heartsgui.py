@@ -21,7 +21,7 @@ DIR = ""
 DEVICE = ""
 
 # version
-VERSION = "HEARTS GUI ver.0.12 / HCI Lab, OKAYAMA UNIV."
+VERSION = "HEARTS GUI ver.0.13 / HCI Lab, OKAYAMA UNIV."
 
 # 状態をアップデートする関数(Thread)
 def eval_update_func(window):
@@ -29,6 +29,7 @@ def eval_update_func(window):
 
     while True:
         data = bleh.get_evaluation_data()
+
         if len(data) > 0:
             if data[-1]['EyeContactState'] == 1:
                 window.write_event_value(('EYECONTACT', 'TRUE'), 'TRUE')
@@ -56,8 +57,8 @@ def eval_update_func(window):
 
         time.sleep(0.01)
 
-        if evaluating == False:
-            break
+        #if evaluating == False:
+        #    break
 
 # ステータスバーにメッセージを表示
 def statusmessage(text):
@@ -142,7 +143,7 @@ def main():
             [sg.Text('0',key='dist_av_score',size=(10,1), font=("Calibri", 20),justification="right")]            
             ]
     
-    face_text = ["デフォルト", "高齢(男)", "若年(男)", "若年(女)", "高齢(Real)"]
+    face_text = ["デフォルト", "高齢(男)", "若年(女)", "若年(男)", "高齢(Real)"]
 
     layout = [
         [sg.Combo(devices,default_value=device_default,key='combo_device',readonly=True,size=(30,24)), 
@@ -170,7 +171,7 @@ def main():
 
         if event is None:
             # kill the thread
-            bleh.stop_evaluation()
+            bleh.stop_listener()
             # print('exit')
             break
 
@@ -185,6 +186,7 @@ def main():
                 statusmessage("connected") 
                 window['start_eval'].update(disabled = False)
                 window['stop_eval'].update(disabled = True)
+                window.start_thread(lambda: eval_update_func(window), '-THREAD-')
             else:
                 window['CONNECT'].update(disabled = False)                    
                 statusmessage("connection failed.")
@@ -207,15 +209,14 @@ def main():
             window['start_eval'].update(disabled = True)
             window['stop_eval'].update(disabled = False)
             statusmessage("start evaluation")
-            evaluating = True
+            # Listerのデータをクリアする
             bleh.clear_eval_data()
-            bleh.start_evaluation()
-            window.start_thread(lambda: eval_update_func(window), '-THREAD-')
+            evaluating = True
+            #bleh.start_evaluation()
+            # window.start_thread(lambda: eval_update_func(window), '-THREAD-')
 
         if event == 'stop_eval':
-            # blehの評価を止める
-            bleh.stop_evaluation()
-            # update threadを止める
+            # evaluatingを止める
             evaluating = False
             # 現在のデータを保存する
             if DIR == "":
@@ -274,7 +275,6 @@ def main():
         if event == 'FACE':
             face_id = face_text.index(window['FACE'].get())
             bleh.set_face(face_id)
-            print(face_id)
 
         if event[0] == 'EVAL_UPDATE':
             window['duration'].update(value = f"{event[1]} 秒")

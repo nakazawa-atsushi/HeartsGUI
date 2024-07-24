@@ -48,6 +48,7 @@ class BLEHeartsEvaListener(threading.Thread):
         # \"GazeScore\":0.0,\"MultiModalScore\":0.0,\"TouchState\":-1,\"VoiceState\":1,\"EyeContactState\":0,\"GazeState\":0,
         # \"Distance\":96.70360565185547,\"evaluation\":false,\"reset\":false,\"language\":false,\"beep\":false,\"mode\":false,
         # \"forward\":false,\"backword\":false,\"senario\":false,\"senarionum\":0,\"level\":0}";
+        # print(len(self.buffer))
         data = json.loads(mes)
         self.buffer.append(data)
 
@@ -154,22 +155,31 @@ class BLEHearts():
             self.sock.connect((self.host, self.port))
             print("connected to ", self.host, self.port)
             self.connected = True
+            # start listener
+            self.listener = BLEHeartsEvaListener(self.sock)
+            self.listener.start()            
         except Exception as e:
             print("connection failed")
             self.connected = False
-        
+
         return self.connected
 
-    def start_evaluation(self):
+    #def start_evaluation(self):
         # print("connection status: ", self.connected)
-        if self.connected == False:
-            return False
+    #    if self.connected == False:
+    #        return False
 
         # Preapre listener and start
-        self.listener = BLEHeartsEvaListener(self.sock)
-        self.listener.start()
+    #    self.listener = BLEHeartsEvaListener(self.sock)
+    #    self.listener.start()
 
-    def stop_evaluation(self):
+    #def stop_evaluation(self):
+    #    if self.connected == False:
+    #        return False
+
+    #    self.listener.stop()
+
+    def stop_listener(self):
         if self.connected == False:
             return False
 
